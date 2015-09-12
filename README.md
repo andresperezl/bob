@@ -1,2 +1,2 @@
 # BoB (Best of Both)
-Watch Youtube streams wit the delightful Twitch chat!
+Watch Youtube streams with the delightful Twitch chat!
