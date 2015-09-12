@@ -55,6 +55,9 @@
             Stream/Chatio Size Ratio<span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            <li onclick="setRatio(12,0)">
+              <a href="#"> 1:0 (Hide Chat)</a>
+            </li>
             <li onclick="setRatio(6,6)">
               <a href="#"> 1:1 </a>
             </li>
@@ -102,7 +105,12 @@
       $("#youtubeFrame").removeClass();
       $("#twitchFrame").removeClass();
       $("#youtubeFrame").addClass("col-md-" + stream);
-      $("#twitchFrame").addClass("col-md-" + chat);
+      if(chat > 0){
+        $("#twitchFrame").show();
+        $("#twitchFrame").addClass("col-md-" + chat);
+      } else {
+        $("#twitchFrame").hide();
+      }
     }
     $(function(){
       optionsMenu.hide();
