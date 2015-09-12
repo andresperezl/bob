@@ -28,16 +28,10 @@
       height: 100% !important;
     }
     #optionsWrapper {
-      width: 50px;
-      height: 50px;
       background: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 50;
+      border: none;
     }
     #optionsMenu {
-      background-color: white;
       width: auto;
       height: 100%;
     }
@@ -47,32 +41,39 @@
 </head>
 
 <body>
-  <div id="optionsWrapper">
-    <div id="optionsMenu">
-      <ul class="nav nav-pills">
-        <li role="presentation" class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-            Stream/Chatio Size Ratio<span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li onclick="setRatio(12,0)">
-              <a href="#"> 1:0 (Hide Chat)</a>
-            </li>
-            <li onclick="setRatio(6,6)">
-              <a href="#"> 1:1 </a>
-            </li>
-            <li onclick="setRatio(8,4)">
-              <a href="#"> 2:1 </a>
-            </li>
-            <li onclick="setRatio(9,3)">
-              <a href="#"> 3:1 </a>
-            </li>
-            <li onclick="setRatio(10,2)">
-              <a href="#"> 5:1 </a>
-            </li>
-          </ul>
-  </li>
-      </ul>
+  <div id="optionsWrapper" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          <img src="bob-nav.png" alt="BoB" id="navLogo" />
+        </a>
+      </div>
+      <div id="optionsMenu" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              Stream/Chatio Size Ratio<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li onclick="setRatio(12,0)">
+                <a href="#"> 1:0 (Hide Chat)</a>
+              </li>
+              <li onclick="setRatio(6,6)">
+                <a href="#"> 1:1 </a>
+              </li>
+              <li onclick="setRatio(8,4)">
+                <a href="#"> 2:1 </a>
+              </li>
+              <li onclick="setRatio(9,3)">
+                <a href="#"> 3:1 </a>
+              </li>
+              <li onclick="setRatio(10,2)">
+                <a href="#"> 5:1 </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="container-fluid">
@@ -113,21 +114,18 @@
       }
     }
     $(function(){
-      optionsMenu.hide();
+      optionsMenu.fadeTo(0,0);
+      $("#navLogo").fadeTo(0, 0.1);
       $("#optionsWrapper").mouseover(function(){
-        optionsMenu.show("slide", { direction: "left" }, function(){
-          optionsWrapper.css({width: "100%", height: "auto"});
-        });          
+        $("#navLogo").fadeTo(500,1);
+        optionsMenu.fadeTo(500, 1);          
       })
-    });
-    $(function(){
       $("#optionsWrapper").mouseleave(function(){
-        optionsMenu.hide("slide", { direction: "left" }, function(){
-          optionsWrapper.css({width: "50px", height: "50px"});
-        });
-        
-      })
+        $("#navLogo").fadeTo(500, 0.1);
+        optionsMenu.fadeTo(500, 0);        
+      });
     });
+      
   </script>
 </body>
 </html>
