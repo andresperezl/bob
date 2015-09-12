@@ -6,7 +6,7 @@
   <title>BoB - Best of Both</title>
   <meta name="description" content="Watch Youtube streams with the delightful Twitch chat!">
   <meta name="author" content="Andres Perez">
-  <link rel="icon" href="bob.png" />
+  <link rel="shortcut icon" type="image/png" href="/bob.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <style type="text/css">
     html {
@@ -28,8 +28,8 @@
       height: 100% !important;
     }
     #optionsWrapper {
-      width: 100px;
-      height: 100px;
+      width: 50px;
+      height: 50px;
       background: transparent;
       position: absolute;
       top: 0;
@@ -38,7 +38,7 @@
     }
     #optionsMenu {
       background-color: white;
-      width: 100%;
+      width: auto;
       height: 100%;
     }
   </style>
@@ -115,14 +115,17 @@
     $(function(){
       optionsMenu.hide();
       $("#optionsWrapper").mouseover(function(){
-        optionsMenu.show("slide", { direction: "left" });
-        optionsWrapper.css({width: "auto", height: "auto"});
+        optionsMenu.show("slide", { direction: "left" }, function(){
+          optionsWrapper.css({width: "100%", height: "auto"});
+        });          
       })
     });
     $(function(){
       $("#optionsWrapper").mouseleave(function(){
-        optionsMenu.hide("slide", { direction: "left" });
-        optionsWrapper.css({width: "100px", height: "100px"});
+        optionsMenu.hide("slide", { direction: "left" }, function(){
+          optionsWrapper.css({width: "50px", height: "50px"});
+        });
+        
       })
     });
   </script>
