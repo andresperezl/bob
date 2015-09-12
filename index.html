@@ -28,8 +28,8 @@
       height: 100% !important;
     }
     #optionsWrapper {
-      height: 100%;
-      width: 300px;
+      width: 100px;
+      height: 100px;
       background: transparent;
       position: absolute;
       top: 0;
@@ -49,7 +49,7 @@
 <body>
   <div id="optionsWrapper">
     <div id="optionsMenu">
-      <ul class="nav nav-pills nav-stacked">
+      <ul class="nav nav-pills">
         <li role="presentation" class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             Stream/Chatio Size Ratio<span class="caret"></span>
@@ -97,6 +97,7 @@
     var streamFrane = $("#youtubeFrame");
     var chatFrame = $("#twitchFrame");
     var optionsMenu = $("#optionsMenu");
+    var optionsWrapper = $("#optionsWrapper");
     function setRatio(stream, chat){
       $("#youtubeFrame").removeClass();
       $("#twitchFrame").removeClass();
@@ -107,11 +108,13 @@
       optionsMenu.hide();
       $("#optionsWrapper").mouseover(function(){
         optionsMenu.show("slide", { direction: "left" });
+        optionsWrapper.css({width: "auto", height: "auto"});
       })
     });
     $(function(){
       $("#optionsWrapper").mouseleave(function(){
         optionsMenu.hide("slide", { direction: "left" });
+        optionsWrapper.css({width: "100px", height: "100px"});
       })
     });
   </script>
