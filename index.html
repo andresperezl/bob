@@ -52,7 +52,7 @@
         <ul class="nav navbar-nav">
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              Stream/Chatio Size Ratio<span class="caret"></span>
+              Stream/Chat Size Ratio<span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
               <li onclick="setRatio(12,0)">
@@ -70,6 +70,20 @@
               <li onclick="setRatio(10,2)">
                 <a href="#"> 5:1 </a>
               </li>
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Riot's YT Events Streams<span class="caret"></span>
+            </a>
+            <ul id="streamList" class="dropdown-menu">
+            </ul>
+          </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Riot's TTV Chat Rooms<span class="caret"></span>
+            </a>
+            <ul id="chatList" class="dropdown-menu">
             </ul>
           </li>
         </ul>
@@ -95,13 +109,32 @@
     </div>
   </div>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script>
     var streamFrane = $("#youtubeFrame");
     var chatFrame = $("#twitchFrame");
     var optionsMenu = $("#optionsMenu");
     var optionsWrapper = $("#optionsWrapper");
+    var streams = [
+      {
+        title: "2015 World Championship Group Draw Show",
+        streamId: "WBUMTauacY8"
+      }
+    ]
+    var chats = [
+      {
+        title: "Riot Games (Main)",
+        channel: "riotgames"
+      },
+      {
+        title: "Riot Games 2",
+        channel: "riotgames2"
+      },
+      {
+        title: "Riot Games 3",
+        channel: "riotgames3"
+      }
+    ]
     function setRatio(stream, chat){
       $("#youtubeFrame").removeClass();
       $("#twitchFrame").removeClass();
@@ -112,6 +145,12 @@
       } else {
         $("#twitchFrame").hide();
       }
+    }
+    function switchStream(streamId){
+      $("#youtubeFrame").attr('src', "https://www.youtube.com/embed/" + streamId + "?autoplay=1");
+    }
+    function switchChat(channel){
+      $("#twitchFrame").attr('src', "http://www.twitch.tv/" + channel + "/chat");
     }
     $(function(){
       optionsMenu.fadeTo(0,0);
@@ -124,7 +163,14 @@
         $("#navLogo").fadeTo(500, 0.1);
         optionsMenu.fadeTo(500, 0);        
       });
+      streams.forEach(function(streamObject){
+        $("#streamList").append("<li onclick=\"switchStream('" + streamObject.streamId + "')\"><a href='#'>" + streamObject.title + "</a></li>")
+      })
+      chats.forEach(function(chatObject){
+        $("#chatList").append("<li onclick=\"switchChat('" + chatObject.channel + "')\"><a href='#'>" + chatObject.title + "</a></li>")
+      })
     });
+
       
   </script>
 </body>
