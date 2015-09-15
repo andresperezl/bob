@@ -30,10 +30,14 @@
     #optionsWrapper {
       background: transparent;
       border: none;
+      pointer-events: none;
     }
     #optionsMenu {
       width: auto;
       height: 100%;
+    }
+    #optionsContainer{
+      pointer-events: auto;
     }
   </style>
 
@@ -42,7 +46,7 @@
 
 <body>
   <div id="optionsWrapper" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+    <div class="container" id="optionsContainer">
       <div class="navbar-header">
         <a class="navbar-brand">
           <img src="bob-nav.png" alt="BoB" id="navLogo" />
@@ -179,11 +183,11 @@
     $(function(){
       optionsMenu.fadeTo(0,0);
       $("#navLogo").fadeTo(0, 0.1);
-      $("#optionsWrapper").mouseover(function(){
+      $("#optionsContainer").mouseover(function(){
         $("#navLogo").fadeTo(500,1);
         optionsMenu.fadeTo(500, 1);          
       })
-      $("#optionsWrapper").mouseleave(function(){
+      $("#optionsContainer").mouseleave(function(){
         $("#navLogo").fadeTo(500, 0.1);
         optionsMenu.fadeTo(500, 0);        
       });
