@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
 
 <body>
   <div id="optionsWrapper" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand">
           <img src="bob-nav.png" alt="BoB" id="navLogo" />
@@ -93,6 +93,12 @@
             </ul>
           </li>
         </ul>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+              <input type="checkbox" id="chatOnLeft" class="form-control" />
+              <label for="chatOnLeft">Chat on left side</label>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -121,6 +127,7 @@
     var chatFrame = $("#twitchFrame");
     var optionsMenu = $("#optionsMenu");
     var optionsWrapper = $("#optionsWrapper");
+    var chatOnLeft = $("input[type='checkbox']#chatOnLeft");
     var streams = [
       {
         title: "2015 World Championship Group Draw Show",
@@ -141,17 +148,28 @@
         channel: "riotgames3"
       }
     ]
+    var streamSize = 9;
+    var chatSize = 3;
     function setRatio(stream, chat){
       $("#youtubeFrame").removeClass();
       $("#twitchFrame").removeClass();
       $("#youtubeFrame").addClass("col-md-" + stream);
+      if(chatOnLeft.is(":checked")){
+         $("#youtubeFrame").addClass("col-md-push-" + chat);
+      }
       if(chat > 0){
         $("#twitchFrame").show();
         $("#twitchFrame").addClass("col-md-" + chat);
+        if(chatOnLeft.is(":checked")){
+          $("#twitchFrame").addClass("col-md-pull-" + stream);
+        }
       } else {
         $("#twitchFrame").hide();
       }
+      streamSize = stream;
+      chatSize = chat;
     }
+
     function switchStream(streamId){
       $("#youtubeFrame").attr('src', "https://www.youtube.com/embed/" + streamId + "?autoplay=1");
     }
@@ -169,12 +187,15 @@
         $("#navLogo").fadeTo(500, 0.1);
         optionsMenu.fadeTo(500, 0);        
       });
+      chatOnLeft.change(function(){
+        setRatio(streamSize, chatSize);
+      });
       streams.forEach(function(streamObject){
         $("#streamList").append("<li onclick=\"switchStream('" + streamObject.streamId + "')\"><a href='#'>" + streamObject.title + "</a></li>")
-      })
+      });
       chats.forEach(function(chatObject){
         $("#chatList").append("<li onclick=\"switchChat('" + chatObject.channel + "')\"><a href='#'>" + chatObject.title + "</a></li>")
-      })
+      });
     });
 
       
