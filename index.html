@@ -88,7 +88,7 @@
             </a>
             <ul id="streamList" class="dropdown-menu">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="Video ID...">
+                <input id="custom-video-id" type="text" class="form-control" placeholder="Video ID...">
                 <span class="input-group-btn">
                   <button id="custom-video-btn" class="btn btn-default" type="button">Play!</button>
                 </span>
@@ -207,7 +207,7 @@
         $("#chatList").append("<li onclick=\"switchChat('" + chatObject.channel + "')\"><a href='#'>" + chatObject.title + "</a></li>")
       });
       $("#custom-video-btn").click(function(){
-        switchStream($(this).val());
+        switchStream($("#custom-video-id").val());
       });
     });
     
