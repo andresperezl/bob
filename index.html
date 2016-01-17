@@ -206,8 +206,11 @@
       chats.forEach(function(chatObject){
         $("#chatList").append("<li onclick=\"switchChat('" + chatObject.channel + "')\"><a href='#'>" + chatObject.title + "</a></li>")
       });
+      $("#custom-video-btn").click(function(){
+        switchStream($(this).val());
+      });
     });
-
+    
       
   </script>
 </body>
