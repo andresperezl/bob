@@ -84,15 +84,18 @@
           </li>
           <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                Riot's YT Events Streams<span class="caret"></span>
+                Change Stream<span class="caret"></span>
             </a>
             <ul id="streamList" class="dropdown-menu">
-              <div class="input-group">
-                <input id="custom-video-id" type="text" class="form-control" placeholder="Video ID...">
-                <span class="input-group-btn">
-                  <button id="custom-video-btn" class="btn btn-default" type="button">Play!</button>
-                </span>
-              </div>
+              <li>
+                <div class="input-group">
+                  <input id="custom-video-id" type="text" class="form-control" placeholder="Video ID...">
+                  <span class="input-group-btn">
+                    <button id="custom-video-btn" class="btn btn-default" type="button">Play!</button>
+                  </span>
+                </div>
+              </li>
+              <li><a href="https://www.youtube.com/channel/UCvqRdlKsE5Q8mf8YXbdIJLw">LoL eSport YT Channel</a></li>
             </ul>
           </li>
           <li role="presentation" class="dropdown">
@@ -116,7 +119,7 @@
     <div class="row">
       <iframe 
         class="col-md-9"
-        src="https://www.youtube.com/embed/jvmvnQkN6Uk?autoplay=1"
+        src="https://www.youtube.com/embed/XIMLoLxmTDw?autoplay=1"
         frameborder="0"
         allowfullscreen
         id="youtubeFrame">
@@ -138,20 +141,7 @@
     var optionsMenu = $("#optionsMenu");
     var optionsWrapper = $("#optionsWrapper");
     var chatOnLeft = $("input[type='checkbox']#chatOnLeft");
-    var streams = [
-      {
-        title: "NA LCS Spring - Week 2 Day 1",
-        streamId: "jvmvnQkN6Uk"
-      },
-      {
-        title: "LCK Spring - Week 2 Day 4",
-        streamId: "c5NtsEAU3Gc"
-      },
-      {
-        title: "LPL Spring - Week 2 Day 3",
-        streamId: "C2v-iHnoqsk"
-      }
-    ]
+    var streams = []
     var chats = [
       {
         title: "Riot Games (Main)",
