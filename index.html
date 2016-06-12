@@ -105,6 +105,22 @@
             <ul id="chatList" class="dropdown-menu">
             </ul>
           </li>
+          <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Custom Chat<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="input-group">
+                  <input id="custom-chat-id" type="text" class="form-control" placeholder="Chat ID...">
+                  <span class="input-group-btn">
+                    <button id="custom-chat-btn" class="btn btn-default" type="button">Go!</button>
+                  </span>
+                </div>
+              </li>
+             </ul>
+          </li>
+          </li>
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -206,6 +222,9 @@
       });
       $("#custom-video-btn").click(function(){
         switchStream($("#custom-video-id").val());
+      });
+      $("#custom-chat-btn").click(function(){
+        switchChat($("#custom-chat-id").val());
       });
     });
   </script>
