@@ -207,7 +207,19 @@
         switchStream($("#custom-video-id").val());
       });
       $("#custom-chat-btn").click(function(){
-        switchChat($("#custom-chat-id").val());
+        switchChat($("#custom-chat-id").val().toLowerCase());
+      });
+      $("#custom-video-id").keypress(function(event){
+        if(event.which == 13){
+          event.preventDefault();
+          switchStream($("#custom-video-id").val());
+        }
+      });
+      $("#custom-chat-id").keypress(function(event){
+        if(event.which == 13){
+          event.preventDefault();
+          switchChat($("#custom-chat-id").val().toLowerCase());
+        }
       });
     });
   </script>
