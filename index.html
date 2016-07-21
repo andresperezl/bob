@@ -234,6 +234,14 @@
           switchChat($("#custom-chat-id").val().toLowerCase());
         }
       });
+      var stream = getUrlParameter('stream'),
+          chat = getUrlParameter('chat');
+      if(stream !== undefined){
+        switchStream(stream);
+      }
+      if(chat !== undefined){
+        switchChat(chat);
+      }
     });
   </script>
 </body>
