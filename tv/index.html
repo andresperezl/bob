@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+    <meta charset='utf-8'>
+    <title>BoB TV</title>
+    <meta content='width=device-width, initial-scale=1, shrink-to-fit=no' name='viewport'>
+    <meta content='ie=edge' http-equiv='x-ua-compatible'>
+    <style>
+      * {
+          line-height: 1.2;
+          margin: 0;
+      }
+      
+      html {
+          color: #888;
+          display: table;
+          font-family: sans-serif;
+          height: 100%;
+          text-align: center;
+          width: 100%;
+      }
+      
+      body {
+          display: table-cell;
+          vertical-align: middle;
+          margin: 2em auto;
+      }
+      
+      h1 {
+          color: #555;
+          font-size: 2em;
+          font-weight: 400;
+      }
+      
+      p {
+          margin: 0 auto;
+          width: 280px;
+      }
+      
+      @media only screen and (max-width: 280px) {
+      
+          body, p {
+              width: 95%;
+          }
+      
+          h1 {
+              font-size: 1.5em;
+              margin: 0 0 0.3em;
+          }
+      
+      }
+    </style>
+    <link crossorigin='anonymous' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css' integrity='sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj' rel='stylesheet'>
+    <link crossorigin='anonymous' href='css/main.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div class='container-fluid full-height'>
+      <div class='row full-height'>
+        <iframe class='full-width' frameborder='0' id='youtubeFrame' src='https://www.youtube.com/embed/2lshhH1x1Ko?autoplay=1'></iframe>
+        <div class='col-xs-3' id='chat-container'>
+          <iframe frameborder='0' id='twitchFrame' src='https://www.twitch.tv/riotgames/chat'></iframe>
+          <i aria-hidden class='fa fa-arrows' id='chat-handle'></i>
+        </div>
+      </div>
+    </div>
+    <script crossorigin='anonymous' integrity='sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY' src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+    <script crossorigin='anonymous' src='https://code.jquery.com/ui/1.12.1/jquery-ui.min.js'></script>
+    <script crossorigin='anonymous' integrity='sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB' src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js'></script>
+    <script crossorigin='anonymous' integrity='sha384-VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU' src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js'></script>
+    <script src='https://use.fontawesome.com/8a390fe410.js'></script>
+    <script src='js/main.js'></script>
+  </body>
+</html>
+<!-- IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx -->

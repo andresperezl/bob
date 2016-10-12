@@ -1,0 +1,36 @@
+body, .ember-chat, .ember-view.ember-chat.roomMode, .chat-container, .ember-chat-container {
+  background-color: transparent!important;
+  height: 90%!important;
+}
+
+body{
+  opacity: 0.5!important;
+}
+
+body:hover{
+  opacity: 1!important;
+}
+
+.chat-header, .chat-menu, .chat-interface, .chat-helpers, .chat-commands-dropdown, .notification-container {
+  display: none;
+}
+
+#channel-prompt, .ember-chat .chat-messages {
+  background-color: rgba(30, 30, 30, 0)!important;
+  border: 0;
+}
+
+#chat_line_list .line:nth-child(2n), .chat-messages .chat-line:nth-child(2n) {
+  background-color: rgba(35,35,35, 0)!important;
+  border: 0;
+}
+
+#channel-prompt, .ember-chat .chat-messages:hover {
+  background-color: rgba(30, 30, 30, 0.25)!important;
+  border: 0;
+}
+
+#chat_line_list .line:nth-child(2n), .chat-messages .chat-line:nth-child(2n):hover {
+  background-color: rgba(35,35,35, 0.25)!important;
+  border: 0;
+}

@@ -1,1 +1,5 @@
-"Thumbs.db" 
+"Thumbs.db"
+*.pem
+*.zip
+.DS_Store
+.sass-cache

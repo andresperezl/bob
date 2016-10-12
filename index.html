@@ -41,7 +41,7 @@
     }
   </style>
 
-  
+
 </head>
 
 <body>
@@ -125,6 +125,9 @@
               </li>
             </ul>
           </li>
+          <li>
+            <a id="tv-btn" href="#">Go TV Mode</a>
+          </li>
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -137,17 +140,17 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-      <iframe 
+      <iframe
         class="col-md-9"
         src="https://www.youtube.com/embed/y-KcA51Co-o?autoplay=1"
         frameborder="0"
         allowfullscreen
         id="youtubeFrame">
       </iframe>
-      <iframe 
-        frameborder="0" 
-        scrolling="no" 
-        src="http://www.twitch.tv/bobreplays/chat" 
+      <iframe
+        frameborder="0"
+        scrolling="no"
+        src="http://www.twitch.tv/bobreplays/chat"
         class="col-md-3"
         id="twitchFrame">
       </iframe>
@@ -163,6 +166,7 @@
     var chatOnLeft = $("input[type='checkbox']#chatOnLeft");
     var streamSize = 9;
     var chatSize = 3;
+    var stream, chat;
     function setRatio(stream, chat){
       $("#youtubeFrame").removeClass();
       $("#twitchFrame").removeClass();
@@ -185,11 +189,13 @@
 
     function switchStream(streamId){
       $("#youtubeFrame").attr('src', "https://www.youtube.com/embed/" + streamId + "?autoplay=1");
+      stream = streamId;
     }
     function switchChat(channel){
       $("#twitchFrame").attr('src', "http://www.twitch.tv/" + channel + "/chat");
+      chat = channel;
     }
-    
+
     function getUrlParameter(sParam) {
       var sPageURL = decodeURIComponent(window.location.search.substring(1)),
           sURLVariables = sPageURL.split('&'),
@@ -207,11 +213,11 @@
       $("#navLogo").fadeTo(0, 0.1);
       $("#optionsContainer").mouseover(function(){
         $("#navLogo").fadeTo(500,1);
-        optionsMenu.fadeTo(500, 1);          
+        optionsMenu.fadeTo(500, 1);
       })
       $("#optionsContainer").mouseleave(function(){
         $("#navLogo").fadeTo(500, 0.1);
-        optionsMenu.fadeTo(500, 0);        
+        optionsMenu.fadeTo(500, 0);
       });
       chatOnLeft.change(function(){
         setRatio(streamSize, chatSize);
@@ -234,14 +240,23 @@
           switchChat($("#custom-chat-id").val().toLowerCase());
         }
       });
-      var stream = getUrlParameter('stream'),
-          chat = getUrlParameter('chat');
+      stream = getUrlParameter('stream');
+      chat = getUrlParameter('chat');
       if(stream !== undefined){
         switchStream(stream);
       }
       if(chat !== undefined){
         switchChat(chat);
       }
+
+      $("#tv-btn").click(function(){
+        if(stream === undefined || chat === undefined){
+          alert("You need to set the chat and stream first!")
+        } else {
+          window.location = "/tv?stream=" + stream + "&chat=" + chat
+        }
+      });
+
     });
   </script>
 </body>
