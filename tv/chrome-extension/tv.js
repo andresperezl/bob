@@ -1,7 +1,7 @@
 console.log("BoB Extension Pluggin was loaded")
 $(function(){
   console.log(window.location.ancestorOrigins[0]);
-  if(window.location.ancestorOrigins[0].match("//andresperezl.github.com/bob/tv|http://localhost:8080")){
+  if(window.location.ancestorOrigins[0].match("//andresperezl\.github\.io/bob/tv|http://localhost:8080|//andresperezl\.com/bob/tv")){
     setTimeout(function(){
       var tvStyle = document.createElement("link");
       tvStyle.rel = "stylesheet";
