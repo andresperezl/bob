@@ -1,5 +1,8 @@
 ![BoB Logo](bob.png)
 
+**DEPRECATED - Since Twitch added the Auto quality feature in their video player, this project became somewhat irrelevant, and is not being actively maintained by the main developer (@andresperezl), issues and PR will still be reviewd upon request.**
+
+
 # Best of Both
 
 Best of Both (or just BoB) is a site that integrates YouTube streams with Twitch chat, for any Riot Live Stream. This is specially useful for user with slow internet connection that for some reason enjoy Twitch chat. Thanks to YouTube auto-quality feature, the stream will adapt by itself to the necessary quality to avoid pausing and buffering, and the resume time is also faster than that on twitch.
